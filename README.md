@@ -1,7 +1,7 @@
- <H3>ENTER YOUR NAME</H3>
-<H3>ENTER YOUR REGISTER NO.</H3>
+ <H3>NAME : Prajin S</H3>
+<H3>REGISTER NO. : 212223230151</H3>
 <H3>EX. NO.8</H3>
-<H3>DATE:</H3>
+<H3>DATE:25.10.2025</H3>
 <H1 ALIGN =CENTER>Implementation of Speech Recognition</H1>
 <H3>Aim:</H3> 
  To implement the conversion of live speech to text.<BR>
@@ -22,9 +22,28 @@ Step 11: Perform speech recognition with exceptional handling:<Br>
 •	A generic exception block captures any other unexpected errors.<Br>
 <H3>Program:</H3>
 
-Insert your code her
+```python
+!pip install SpeechRecognition
+!pip install pyaudio
+import speech_recognition as sr
+def record_audio():
+    r=sr.Recognizer()
+    r.energy_threshold = 6000
+    voicedata=''
+    try:
+        with sr.Microphone() as source:
+            audio=r.listen(source)
+            voicedata=r.recognize_google(audio,language='te-IN')            
+    except sr.UnknownValueError:
+        print("Unable to Recognize Audio")
+    except sr.RequestError:
+        print("Unable to find the Resource")
+    return voicedata
+print(record_audio())
+```
 
 <H3> Output:</H3>
-Show the results here
+<img width="486" height="29" alt="image" src="https://github.com/user-attachments/assets/6fba6d5a-8d9c-4871-9847-f2b75804d22f" />
+
 
 <H3> Result:</H3>
